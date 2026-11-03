@@ -48,7 +48,6 @@ public class PrivateDocumentsProvider extends DocumentsProvider {
         row.add(DocumentsContract.Root.COLUMN_TITLE, "Private App Files");
         row.add(DocumentsContract.Root.COLUMN_ICON, android.R.drawable.ic_menu_save);
         
-        // Добавлен FLAG_SUPPORTS_IS_CHILD
         row.add(DocumentsContract.Root.COLUMN_FLAGS,
                 DocumentsContract.Root.FLAG_SUPPORTS_CREATE |
                 DocumentsContract.Root.FLAG_LOCAL_ONLY |
@@ -92,12 +91,12 @@ public class PrivateDocumentsProvider extends DocumentsProvider {
         
         try {
             if (DocumentsContract.Document.MIME_TYPE_DIR.equals(mimeType)) {
-                if (!file.mkdir()) throw new FileNotFoundException("Не удалось создать папку: " + file.getPath());
+                if (!file.mkdir()) throw new FileNotFoundException("Unable to create folder: " + file.getPath());
             } else {
-                if (!file.createNewFile()) throw new FileNotFoundException("Не удалось создать файл: " + file.getPath());
+                if (!file.createNewFile()) throw new FileNotFoundException("Unable to create file: " + file.getPath());
             }
         } catch (IOException e) {
-            throw new FileNotFoundException("Ошибка ввода-вывода при создании: " + e.getMessage());
+            throw new FileNotFoundException("IO error: " + e.getMessage());
         }
         
         return getDocIdForFile(file);
@@ -107,11 +106,10 @@ public class PrivateDocumentsProvider extends DocumentsProvider {
     public void deleteDocument(String documentId) throws FileNotFoundException {
         File file = getFileForDocId(documentId);
         if (!file.delete()) {
-            throw new FileNotFoundException("Не удалось удалить файл: " + file.getPath());
+            throw new FileNotFoundException("Unable to delete file: " + file.getPath());
         }
     }
 
-    // ДОБАВЛЕННЫЙ МЕТОД ДЛЯ FLAG_SUPPORTS_IS_CHILD
     @Override
     public boolean isChildDocument(String parentDocumentId, String childDocumentId) {
         try {
@@ -130,7 +128,7 @@ public class PrivateDocumentsProvider extends DocumentsProvider {
     private File getFileForDocId(String documentId) throws FileNotFoundException {
         File file = new File(documentId);
         if (!file.exists()) {
-            throw new FileNotFoundException("Файл не найден: " + documentId);
+            throw new FileNotFoundException("File not found: " + documentId);
         }
         return file;
     }

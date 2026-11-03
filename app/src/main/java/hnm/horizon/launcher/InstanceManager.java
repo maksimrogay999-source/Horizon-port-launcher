@@ -17,7 +17,7 @@ public class InstanceManager {
             "resourcepacks", "saves", "shaderpacks"
     };
 
-    // Создание симлинка
+    // Symlink create
     public static void createSymlink(File source, File target) {
         try {
             if (target.exists()) target.delete();
@@ -30,35 +30,30 @@ public class InstanceManager {
         }
     }
 
-    // Подготовка симлинков для запуска инстанса
+    // Symlink prepare
     public static void prepareInstance(File instanceDir, File sharedDir, File gameRootDir) {
-        // Создаем нужные папки
         for (String dirName : DIRS_TO_CREATE) {
             File dir = new File(instanceDir, dirName);
             if (!dir.exists()) dir.mkdirs();
         }
 
-        // Удаляем старые симлинки
+        // Delete old symlinks
         for (String linkName : SHARED_LINKS) new File(gameRootDir, linkName).delete();
         for (String linkName : INSTANCE_LINKS) new File(gameRootDir, linkName).delete();
         new File(gameRootDir, "libhorizon.so").delete();
 
-        // Создаем симлинки из SHARED
         for (String linkName : SHARED_LINKS) {
             File source = new File(sharedDir, linkName);
             if (source.exists()) createSymlink(source, new File(gameRootDir, linkName));
         }
 
-        // Создаем симлинки из INSTANCE
         for (String linkName : INSTANCE_LINKS) {
             File source = new File(instanceDir, linkName);
             if (source.exists()) createSymlink(source, new File(gameRootDir, linkName));
         }
     }
 
-    // Выдача прав на выполнение (chmod +x) для папки env
     public static void prepareEnvironment(File envDir) throws Exception {
-        // Создаем HOME
         File homeDir = new File(envDir, "HOME");
         if (!homeDir.exists()) homeDir.mkdirs();
     

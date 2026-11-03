@@ -50,14 +50,11 @@ public class RubRun {
     }
 
     private static Process startProcess(File envDir, File workingDir, String[] command) throws Exception {
-        // --- ПРИНУДИТЕЛЬНО ДАЕМ ПРАВА НА ВСЁ ---
-        // 1. Все файлы в env/bin
+        // Prepare ( sheet-code ) 
         Runtime.getRuntime().exec(new String[]{"sh", "-c", "chmod +x " + new File(envDir, "bin").getAbsolutePath() + "/*"}).waitFor();
         
-        // 2. Все файлы в NDK bin (включая скрипты без расширения)
         String ndkBin = new File(envDir, "toolchains/llvm/prebuilt/linux-x86_64/bin").getAbsolutePath();
         Runtime.getRuntime().exec(new String[]{"sh", "-c", "chmod +x " + ndkBin + "/*"}).waitFor();
-        // --------------------------------------------------------
 
         String binName = command[0];
         File binFile = new File(envDir, "bin/" + binName);

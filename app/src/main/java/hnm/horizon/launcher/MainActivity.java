@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
         RelativeLayout layout = new RelativeLayout(this);
         layout.setBackgroundColor(Color.parseColor("#121212"));
 
-        // 1. Кнопка Import env
+        // Gui
         Button btnImportEnv = new Button(this);
         btnImportEnv.setText("Import\nenv");
         btnImportEnv.setTextColor(Color.BLACK);
@@ -83,7 +83,6 @@ public class MainActivity extends Activity {
             startActivityForResult(intent, REQUEST_ENV);
         });
 
-        // 2. Кнопка Prepare env
         Button btnPrepareEnv = new Button(this);
         btnPrepareEnv.setText("Prepare env");
         btnPrepareEnv.setTextColor(Color.BLACK);
@@ -107,7 +106,6 @@ public class MainActivity extends Activity {
 
         btnPrepareEnv.setOnClickListener(v -> prepareEnv());
 
-        // 3. Кнопка Test env (Зеленая)
         Button btnTestEnv = new Button(this);
         btnTestEnv.setText("Test env");
         btnTestEnv.setTextColor(Color.BLACK);
@@ -130,7 +128,6 @@ public class MainActivity extends Activity {
 
         btnTestEnv.setOnClickListener(v -> testEnvironment());
 
-        // 4. Название инстанса
         tvInstanceName = new TextView(this);
         tvInstanceName.setTextColor(Color.WHITE);
         tvInstanceName.setTextSize(36);
@@ -144,7 +141,6 @@ public class MainActivity extends Activity {
         tvInstanceName.setId(1);
         layout.addView(tvInstanceName);
 
-        // 5. Кнопка Delete
         Button btnDelete = new Button(this);
         btnDelete.setText("Delete");
         btnDelete.setTextColor(Color.BLACK);
@@ -167,7 +163,6 @@ public class MainActivity extends Activity {
 
         btnDelete.setOnClickListener(v -> showDeleteConfirmationDialog());
 
-        // 6. Кнопка Play
         Button btnPlay = new Button(this);
         btnPlay.setText("Play");
         btnPlay.setTextColor(Color.BLACK);

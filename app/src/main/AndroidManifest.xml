@@ -6,9 +6,9 @@
     <application
         android:allowBackup="true"
         android:label="HNRIZON"
+        android:icon="@drawable/icon"
         android:theme="@android:style/Theme.DeviceDefault.DayNight">
 
-        <!-- Твой лаунчер -->
         <activity
             android:name="hnm.horizon.launcher.MainActivity"
             android:exported="true">
@@ -20,7 +20,6 @@
         
         <activity android:name="hnm.horizon.launcher.SetupActivity" />
         
-        <!-- Activity для запуска самой игры -->
         <activity
             android:name="hnm.horizon.launcher.HorizonActivity"
             android:exported="false"
@@ -29,13 +28,11 @@
             android:windowSoftInputMode="adjustResize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             
-            <!-- Указываем нативную библиотеку-загрузчик -->
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="loader" />
         </activity>
         
-        <!-- Провайдер для доступа к приватной папке (НЕ УДАЛЯТЬ!) -->
         <provider
             android:name="hnm.horizon.launcher.PrivateDocumentsProvider"
             android:authorities="hnm.horizon.launcher.provider"

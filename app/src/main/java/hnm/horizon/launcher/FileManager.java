@@ -9,7 +9,7 @@ import java.util.zip.ZipInputStream;
 
 public class FileManager {
 
-    // Рекурсивное удаление папки
+    // Delete folder
     public static boolean deleteDirectory(File directoryToBeDeleted) {
         File[] allContents = directoryToBeDeleted.listFiles();
         if (allContents != null) {
@@ -20,14 +20,14 @@ public class FileManager {
         return directoryToBeDeleted.delete();
     }
 
-    // Распаковка ZIP-архива
+    // Unpack zip archive
     public static void unzip(File zipFile, File targetDir) throws IOException {
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile))) {
             ZipEntry entry;
             byte[] buffer = new byte[8192];
             while ((entry = zis.getNextEntry()) != null) {
                 File file = new File(targetDir, entry.getName());
-                // Защита от Zip Slip
+                // Protecte of Zip Slip
                 if (!file.getCanonicalPath().startsWith(targetDir.getCanonicalPath())) {
                     throw new IOException("Zip Slip detected: " + entry.getName());
                 }

@@ -31,6 +31,8 @@ public class SetupActivity extends Activity {
         layout.setBackgroundColor(Color.WHITE);
         layout.setPadding(64, 64, 64, 64);
 
+        // Gui
+        
         TextView title = new TextView(this);
         title.setText("Select local.zip");
         title.setTextColor(Color.BLACK);
@@ -40,7 +42,6 @@ public class SetupActivity extends Activity {
         title.setPadding(0, 0, 0, 64);
         layout.addView(title);
 
-        // ТОЛЬКО КНОПКА ДЛЯ LOCAL.ZIP
         Button btnLocal = new Button(this);
         btnLocal.setText("local.zip");
         btnLocal.setTextColor(Color.BLACK);
@@ -92,15 +93,14 @@ public class SetupActivity extends Activity {
             inputStream.close();
             outputStream.close();
 
-            Toast.makeText(this, "Файл " + fileName + " успешно скопирован!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "File " + fileName + " copied!", Toast.LENGTH_SHORT).show();
             
-            // Возвращаемся в MainActivity
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
             
         } catch (Exception e) {
-            Toast.makeText(this, "Ошибка копирования: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Copy error: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 }
