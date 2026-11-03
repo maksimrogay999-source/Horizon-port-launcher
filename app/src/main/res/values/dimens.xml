@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_screen">64dp</dimen>
+    <dimen name="margin_between">24dp</dimen>
+    <dimen name="margin_small">16dp</dimen>
+
+    <dimen name="btn_padding_h">48dp</dimen>
+    <dimen name="btn_padding_v">24dp</dimen>
+    <dimen name="btn_corner">16dp</dimen>
+    <dimen name="btn_corner_big">30dp</dimen>
+
+    <dimen name="btn_wide_width">400dp</dimen>
+    <dimen name="btn_version_width">300dp</dimen>
+
+    <dimen name="text_btn">18sp</dimen>
+    <dimen name="text_btn_big">24sp</dimen>
+    <dimen name="text_btn_play">28sp</dimen>
+    <dimen name="text_instance">36sp</dimen>
+</resources>

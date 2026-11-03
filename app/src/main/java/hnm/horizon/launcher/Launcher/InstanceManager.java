@@ -1,16 +1,14 @@
-package hnm.horizon.launcher;
+package hnm.horizon.launcher.Launcher;
 
 import java.io.File;
 import java.io.IOException;
 
 public class InstanceManager {
     
-    public static final String[] SHARED_LINKS = {".local", "engine-data.zip"};
+    public static final String[] SHARED_LINKS = {".local"};
     public static final String[] INSTANCE_LINKS = {
             ".horizon-cache", "horizon-mods", "mod-browser", "performance",
-            "resourcepacks", "saves", "shaderpacks", "android-launcher.json",
-            "horizon-extars.txt", "horizon-graphics.txt", "horizon-touch.json",
-            "options.txt"
+            "resourcepacks", "saves", "shaderpacks",
     };
     public static final String[] DIRS_TO_CREATE = {
             ".horizon-cache", "horizon-mods", "mod-browser", "performance",

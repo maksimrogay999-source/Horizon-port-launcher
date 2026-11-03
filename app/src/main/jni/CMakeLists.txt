@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.18.1)
-project("chdir")
-
-add_library(chdir SHARED chdir.c)
-
+project("hn_native")
 
 add_library(loader SHARED loader.c)
 

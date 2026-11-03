@@ -1,4 +1,4 @@
-package hnm.horizon.launcher;
+package hnm.horizon.launcher.Files;
 
 import java.io.File;
 import java.io.FileInputStream;

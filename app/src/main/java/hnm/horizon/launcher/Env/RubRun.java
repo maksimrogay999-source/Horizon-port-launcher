@@ -1,4 +1,4 @@
-package hnm.horizon.launcher;
+package hnm.horizon.launcher.Env;
 
 import java.io.BufferedReader;
 import java.io.File;

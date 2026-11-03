@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_import_env">Import\nenv</string>
+    <string name="btn_prepare_env">Prepare env</string>
+    <string name="btn_test_env">Test env</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_play">Play</string>
+    <string name="btn_select_version">Выбрать</string>
+
+    <string name="instance_none">Нет инстансов</string>
+    <string name="toast_select_version_first">Сначала выберите версию!</string>
+    <string name="toast_env_not_found">Папка env не найдена!</string>
+    <string name="toast_env_preparing">Подготовка env (chmod +x)...</string>
+    <string name="toast_env_ready">Env готов к работе!</string>
+    <string name="toast_env_imported">Env успешно импортирован! Нажмите Prepare env.</string>
+    <string name="toast_unpacking_local">Распаковка local.zip...</string>
+    <string name="toast_unpacked">Распаковано!</string>
+    <string name="toast_instance_deleted">Инстанс удалён</string>
+    <string name="toast_delete_error">Ошибка удаления</string>
+    <string name="toast_result_copied">Результат скопирован в буфер обмена!</string>
+    <string name="toast_no_so_file">Нет .so файла в инстансе!</string>
+
+    <string name="dialog_delete_title">Удаление</string>
+    <string name="dialog_delete_message">Are you sure you want to delete an instance?</string>
+    <string name="dialog_delete_positive">Delete</string>
+    <string name="dialog_delete_negative">Cancel</string>
+    <string name="dialog_version_title">Выберите инстанс</string>
+    <string name="dialog_instances_empty">Папка instances пуста</string>
+</resources>
