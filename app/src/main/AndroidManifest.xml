@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:label="HNRIZON"
+        android:theme="@android:style/Theme.DeviceDefault.DayNight">
+
+        <!-- Твой лаунчер -->
+        <activity
+            android:name="hnm.horizon.launcher.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name="hnm.horizon.launcher.SetupActivity" />
+        
+        <!-- Activity для запуска самой игры -->
+        <activity
+            android:name="hnm.horizon.launcher.HorizonActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:configChanges="orientation|screenSize|keyboardHidden|keyboard|density|screenLayout"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            
+            <!-- Указываем нативную библиотеку-загрузчик -->
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="loader" />
+        </activity>
+        
+        <!-- Провайдер для доступа к приватной папке (НЕ УДАЛЯТЬ!) -->
+        <provider
+            android:name="hnm.horizon.launcher.PrivateDocumentsProvider"
+            android:authorities="hnm.horizon.launcher.provider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.MANAGE_DOCUMENTS">
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </provider>
+
+    </application>
+</manifest>
